@@ -64,7 +64,7 @@
             </ul>
           </li> -->
           <li><a href="#contact">Contacto</a></li>
-          <li><a href="#about">Informacion</a></li>
+          <li><a href="#about">Información</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -135,71 +135,118 @@
       </div>
     </section><!-- /Hero Section -->
 
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
 
-      <section id="contact">
-      <!-- Contact Form Section (Overlapping) -->
-      <div class="container form-container-overlap">
-        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
-          <div class="col-lg-10">
-            <div class="contact-form-wrapper">
-              <h2 class="text-center mb-4">Contacto</h2>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "DUriq8IgJRoBtxHn8",
+      });
+   })();
+</script>
 
-              <form action="forms/contact.php" method="post" class="php-email-form">
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <div class="input-with-icon">
-                        <i class="bi bi-person"></i>
-                        <input type="text" class="form-control" name="name" placeholder="Primer Nombre" required="">
-                      </div>
-                    </div>
-                  </div>
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function (event) {
+    event.preventDefault();
 
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <div class="input-with-icon">
-                        <i class="bi bi-envelope"></i>
-                        <input type="email" class="form-control" name="email" placeholder="Email" required="">
-                      </div>
-                    </div>
-                  </div>
+    emailjs.sendForm('service_6pm9jrd', 'template_u83j2r5', this)
+      .then(() => {
+        alert('Mensaje enviado con éxito!');
+      }, (error) => {
+        console.error('Error:', error);
+        alert('Ocurrió un error.');
+      });
+  });
+</script>
 
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <div class="input-with-icon">
-                        <i class="bi bi-text-left"></i>
-                        <input type="text" class="form-control" name="sbject" placeholder="Asunto" required="">
-                      </div>
-                    </div>
-                  </div>
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-                  <div class="col-12">
-                    <div class="form-group">
-                      <div class="input-with-icon">
-                        <i class="bi bi-chat-dots message-icon"></i>
-                        <textarea class="form-control" name="message" placeholder="Escrbir un mensaje..." style="height: 180px" required=""></textarea>
-                      </div>
-                    </div>
-                  </div>
+<script>
+  (function () {
+    emailjs.init({
+      publicKey: "DUriq8IgJRoBtxHn8",
+    });
+  })();
 
-                  <div class="col-12">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
-                  </div>
+  window.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault();
 
-                  <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-primary btn-submit">Enviar mensaje</button>
+      emailjs.sendForm('service_6pm9jrd', 'template_u83j2r5', this)
+        .then(() => {
+          alert('Mensaje enviado con éxito!');
+        }, (error) => {
+          console.error('Error:', error);
+          alert('Ocurrió un error.');
+        });
+    });   
+  });
+</script>
+
+
+<section id="contact">
+  <div class="container form-container-overlap">
+    <h2>Contacto</h2>
+    <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
+      <div class="col-lg-8"> <!-- CAMBIADO de col-lg-10 a col-lg-8 -->
+        <div class="contact-form-wrapper">
+
+          <form id="contact-form" class="php-email-form" action="#">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-with-icon">
+                    <i class="bi bi-person"></i>
+                    <input type="text" class="form-control" name="name" placeholder="Primer Nombre" required="">
                   </div>
                 </div>
-              </form>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-with-icon">
+                    <i class="bi bi-envelope"></i>
+                    <input type="email" class="form-control" name="email" placeholder="Email" required="">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="input-with-icon">
+                    <i class="bi bi-text-left"></i>
+                    <input type="text" class="form-control" name="subject" placeholder="Asunto" required="">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-group">
+                  <div class="input-with-icon">
+                    <i class="bi bi-chat-dots message-icon"></i>
+                    <textarea class="form-control" name="message" placeholder="Escribir un mensaje..." style="height: 180px" required=""></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="sent-message">¡Tu mensaje ha sido enviado. Gracias!</div>
+              </div>
+
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary btn-submit">Enviar mensaje</button>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
-
       </div>
+    </div>
+  </div>
+</section>
 
-    </section><!-- /Contact Section -->
 
 
     <!-- About Section -->
@@ -207,8 +254,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <div><span>Learn More</span> <span class="description-title">About Us</span></div>
+        <h2>Informacion</h2>
+        <div><span>Mas Info</span> <span class="description-title">Sobre Mi</span></div>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -217,37 +264,31 @@
           <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
             <div class="about-image position-relative">
               <img src="assets/img/about/about-portrait-1.webp" class="img-fluid rounded-4 shadow-sm" alt="About Image" loading="lazy">
-              <div class="experience-badge">
-                <span class="years">20+</span>
-                <span class="text">Years of Expertise</span>
-              </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-left" data-aos-delay="300">
             <div class="about-content">
-              <h2>Elevating Business Performance Through Innovation</h2>
-              <p class="lead">We focus on crafting bespoke strategies that navigate complexity and deliver tangible results for our clients.</p>
-              <p>Through a blend of sophisticated analytics and creative problem-solving, we empower organizations to thrive in rapidly evolving markets.</p>
+              <h2>Impulsando el rendimiento empresarial mediante la innovación</h2>
+              <p class="lead">Me enfoco en crear estrategias personalizadas que aborden la complejidad y entreguen resultados tangibles a nuestros clientes.</p>
+              <p>A través de una combinación de análisis sofisticado y resolución creativa de problemas, ayudo a las organizaciones a prosperar en mercados en rápida evolución.</p>
 
               <div class="row g-4 mt-3">
                 <div class="col-md-6" data-aos="zoom-in" data-aos-delay="400">
                   <div class="feature-item">
                     <i class="bi bi-check-circle-fill"></i>
-                    <h5>Dedicated Team Support</h5>
-                    <p>Our highly skilled professionals are committed to providing personalized service and impactful solutions on every engagement.</p>
+                    <h5>Soporte de equipo dedicado</h5>
+                    <p>Nuestros profesionales altamente calificados están comprometidos a brindar un servicio personalizado y soluciones impactantes en cada proyecto.</p>
                   </div>
                 </div>
                 <div class="col-md-6" data-aos="zoom-in" data-aos-delay="450">
                   <div class="feature-item">
                     <i class="bi bi-lightbulb-fill"></i>
-                    <h5>Forward-Thinking Approach</h5>
-                    <p>We embrace innovative methodologies to develop unique strategies that drive lasting success.</p>
+                    <h5>Enfoque innovador</h5>
+                    <p>Adoptamos metodologías innovadoras para desarrollar estrategias únicas que generen éxito sostenible.</p>
                   </div>
                 </div>
               </div>
-
-              <a href="#" class="btn btn-primary mt-4">Explore Our Services</a>
             </div>
           </div>
         </div>
@@ -256,7 +297,7 @@
             <div class="col-lg-4" data-aos="fade-right" data-aos-delay="200">
               <div class="testimonial-intro">
                 <h3>Opiniones de mis clientes</h3>
-                <p>Algunas de las opiniones de mis.</p>
+                <p>Algunas de las opiniones de mis clientes. Para los cuales realicé trabajos de consultoría, mentorías y soluciones de software a medida como páginas web entre otros. Entre ellos se encuentran tanto profesionales de IT como gente de fuera del rubro, que decidieron incursionar.</p>
                 <div class="swiper-nav-buttons mt-4">
                   <button class="slider-prev"><i class="bi bi-arrow-left"></i></button>
                   <button class="slider-next"><i class="bi bi-arrow-right"></i></button>
@@ -287,6 +328,25 @@
                   }
                 </script>
                 <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="rating mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                      </div>
+                      <p>"Working with Bruno was a great experience. I am looking forward to develop with him again. His masterclasses were mindblowing!!"</p>
+                      <div class="client-info d-flex align-items-center mt-4">
+                        <img src="assets/img/person/pedro-pascal.jpg" class="client-img" alt="Client" loading="lazy">
+                        <div>
+                          <h6 class="mb-0">Pedro Pascal</h6>
+                          <span>Famous Actor</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div class="swiper-slide">
                     <div class="testimonial-item">
                       <div class="rating mb-3">
@@ -327,21 +387,13 @@
                     </div>
                   </div>
 
-                  <div class="swiper-slide">
-                    <div class="testimonial-item">
-                      <div class="rating mb-3">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                      </div>
-      <!-- Google Maps (Full Width) -->
-      <div class="map-section" data-aos="fade-up" data-aos-delay="200">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.4903048460383!2d-58.3819186!3d-34.617048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccaba6ac89b35%3A0x1a2dc24cbca665a7!2sUADE!5e0!3m2!1sen!2sar!4v1748346401575!5m2!1sen!2sar" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-  </main>
-
+                  
+                </main>
+                                
+                <!-- Google Maps (Full Width) - fuera del <main>, arriba del <footer> -->
+                <section id="ubicacion" class="map-section" data-aos="fade-up" data-aos-delay="200">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.4903048460383!2d-58.3819186!3d-34.617048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccaba6ac89b35%3A0x1a2dc24cbca665a7!2sUADE!5e0!3m2!1sen!2sar!4v1748346401575!5m2!1sen!2sar" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </section>  
   <footer id="footer" class="footer">
 
     <div class="container footer-top">
@@ -352,13 +404,10 @@
           </a>
           <p></p>
           <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <a href="https://ar.linkedin.com/in/brunolofaro/es"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
-
+<!-- 
         <div class="col-lg-2 col-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
@@ -379,7 +428,7 @@
             <li><a href="#">Marketing</a></li>
             <li><a href="#">Graphic Design</a></li>
           </ul>
-        </div>
+        </div> -->
 
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contacto</h4>
